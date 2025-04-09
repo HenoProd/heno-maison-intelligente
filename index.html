@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion - Heno DOMOTIQUE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <!-- Titre -->
+    <div class="accueil">
+        <h1 class="titre">Connexion</h1>
+
+        <!-- Formulaire -->
+        <form onsubmit="validateForm(event)" method="post" style="margin-top: 30px; width: 80%; max-width: 400px;">
+            <div style="margin-bottom: 15px;">
+                <input id="email" type="text" name="email" placeholder="📧 Mail" required style="width: 100%; padding: 10px; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="password" id="password" name="password" placeholder="🛅 Mot de passe" required style="width: 100%; padding: 10px; border-radius: 5px;">
+            </div>
+            <p id="error-message" style="color: red;"></p>
+            <button type="submit" class="btn btn-on" >Se connecter</button>
+        </form>
+
+        <!-- Lien vers l'inscription -->
+        <p style="margin-top: 15px;">Pas encore de compte ? <a href="#" onclick="afficherInscription()" style="color: #ff9800;">Créer un compte</a></p>
+    </div>
+
+    <!-- Formulaire d'inscription caché -->
+    <div class="accueil" id="formInscription" style="display: none;">
+        <h1 class="titre">Créer un compte</h1>
+        <form action="/register" method="post" style="margin-top: 30px; width: 80%; max-width: 400px;">
+            <div style="margin-bottom: 15px;">
+                <input type="text" name="username" placeholder="🧑‍💻 Nom d'utilisateur" required style="width: 100%; padding: 10px; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="email" name="email" placeholder="📧 Email" required style="width: 100%; padding: 10px; border-radius: 5px;">
+            </div>
+            <div style="margin-bottom: 15px;">
+                <input type="password" name="password" placeholder="🛅 Mot de passe" required style="width: 100%; padding: 10px; border-radius: 5px;">
+            </div>
+            <button type="submit" class="btn btn-on" >S'enregistrer</button>
+        </form>
+        <p style="margin-top: 15px;"><a href="#" onclick="afficherConnexion()" style="color: #ff9800;">Déjà inscrit ? Se connecter</a></p>
+    </div>
+
+    <script>
+          // Utilisation des variables pour stocker les informations utilisateur
+        const storedEmail = "henockmuteba03@gmail.com";
+        const storedPassword = "HenoProd";
+
+        // Fonction pour valider le formulaire avant l'envoi
+        function validateForm(event) {
+            event.preventDefault(); // Empêche la soumission du formulaire
+
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Vérifier si les champs sont vides
+            if (email === "" || password === "") {
+                alert("Veuillez remplir tous les champs.");
+                return;
+            }
+
+            // Comparer avec les informations stockées
+            if (email === storedEmail && password === storedPassword) {
+                // Si les informations sont correctes, rediriger vers index.html
+                window.location.href = 'home.html';  // Remplace par le chemin de ta page d'accueil
+            } else {
+                // Si les informations sont incorrectes, afficher un message d'erreur
+                alert("Email ou mot de passe incorrect.");
+            }
+        }
+        
+        function afficherInscription() {
+            document.querySelector(".accueil").style.display = "none";
+            document.getElementById("formInscription").style.display = "flex";
+        }
+
+        function afficherConnexion() {
+            document.querySelector(".accueil").style.display = "flex";
+            document.getElementById("formInscription").style.display = "none";
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion Récepteurs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button class="btn-commencer" id="menuToggle" onclick="toggleMenu()">☰</button>
+
+    <!-- Menu déroulant -->
+    <div class="menu-deroulant" id="menu">
+        <ul>
+            <li onclick="changerPage('home.html')">← Accueil</li>
+	    <li onclick="changerPage('gestion.html')">Contrôle des recepteurs</li>
+            <li onclick="changerPage('index.html')">Se déconnecter</li>
+        </ul>
+    </div>
+
+    <h1 class="titre">Gestion des Portails</h1>
+
+    <div class="volet">
+	<br>
+        <!-- Icône de soleil centrée -->
+        <div class="led-soleil">
+            <div class="icon">🚪</div>
+        </div>
+    </div>
+
+    <div class="volet">
+        <h2>Portail</h2>
+	
+	<center>
+        <!-- Récepteur 1 -->
+        <div class="recepteur" id="portail">
+ 
+
+            <!-- Contrôle Manuel -->
+	    <span id="p1">Etat </span>
+            <div class="manuel" id="manuel-r1">
+                <button class="btn btn-on" onclick="demarrerRecepteur('p1')">Ouvrir</button>
+                <button class="btn btn-off" onclick="arreterRecepteur('p1')">Fermer</button>
+            </div>
+	</center>
+        <!-- Tu peux copier-coller le bloc du recepteur1 ci-dessus pour les autres (récepteur2, 3, 4, 5) -->
+
+    </div>
+
+    <script>
+        var ip = "192.168.226.223"
+	    function changerPage(page) {
+            window.location.href = page;
+        }
+
+	    function toggleMenu() {
+            const menu = document.getElementById("menu");
+            const toggleBtn = document.getElementById("menuToggle");
+            menu.classList.toggle("visible");
+            toggleBtn.textContent = menu.classList.contains("visible") ? "✖" : "☰";
+        }
+
+        function demarrerRecepteur(id) {
+            alert(`Récepteur ${id} Ouvert`);
+	        document.getElementById(`${id}`).textContent = 'Ouvert';
+            fetch('http://192.168.226.223/r1on')
+        }
+
+        function arreterRecepteur(id) {
+            alert(`Récepteur ${id} fermé`);
+	        document.getElementById(`${id}`).textContent = 'fermé';
+            fetch('http://192.168.226.223/r1off')
+        }
+
+    </script>
+</body>
+</html>

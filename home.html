@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heno DOMOTIQUE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Menu déroulant -->
+    <div class="menu-deroulant" id="menu">
+        <ul>
+            <li onclick="changerPage('gestion.html')">Contrôle des recepteurs</li>
+            <li onclick="changerPage('portail.html')">Portail</li>
+            <li onclick="changerPage('index.html')">Se déconnecter</li>
+        </ul>
+    </div>
+
+    <!-- Page d'accueil -->
+    
+    <div class="accueil" id="accueil">
+        <h1 class="titre">Heno DOMOTIQUE</h1>
+        <div class="icons">
+            <div class="icon">🌞</div>
+            <div class="icon">💡</div>
+            <div class="icon">🏠</div>
+        </div>
+        <button class="btn-commencer" id="menuToggle" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- Bouton flottant d'enregistrement vocal -->
+    <div class="record-button" id="recordButton" onmousedown="demarrerEnregistrement()" onmouseup="arreterEnregistrement()">
+        🎤
+    </div>
+    <div id="recordingStatus">Appuyez et maintenez pour parler</div>
+
+    <script>
+        let enregistrementActif = false;
+        let interval;
+        let secondes = 0;
+
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            const toggleBtn = document.getElementById("menuToggle");
+            menu.classList.toggle("visible");
+            toggleBtn.textContent = menu.classList.contains("visible") ? "✖" : "☰";
+        }
+
+        function changerPage(page) {
+            window.location.href = page;
+        }
+
+        function demarrerEnregistrement() {
+            enregistrementActif = true;
+            secondes = 0;
+            document.getElementById("recordingStatus").textContent = "Enregistrement : 0s";
+            interval = setInterval(() => {
+                secondes++;
+                document.getElementById("recordingStatus").textContent = `Enregistrement : ${secondes}s`;
+            }, 1000);
+        }
+
+        function arreterEnregistrement() {
+            if (enregistrementActif) {
+                clearInterval(interval);
+                document.getElementById("recordingStatus").textContent = `Enregistrement terminé (${secondes}s)`;
+                // Ici, déclenche une action selon l'enregistrement effectué
+                // Ex: envoyer à l'ESP32 via requête, interpréter la commande, etc.
+                enregistrementActif = false;
+            }
+        }
+    </script>
+</body>
+</html>
