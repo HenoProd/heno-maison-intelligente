@@ -1,4 +1,4 @@
-/* Réinitialisation des styles */
+/* Réinitialisation des marges et polices */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,14 @@
     font-family: Arial, sans-serif;
 }
 
+/* Style global du body */
 body {
     background-color: #1a1a1a;
     color: white;
     text-align: center;
 }
 
-/* ==== Accueil ==== */
+/* === PAGE D'ACCUEIL === */
 .accueil {
     display: flex;
     flex-direction: column;
@@ -22,15 +23,35 @@ body {
     padding: 20px;
 }
 
+/* Titre principal */
 .titre {
     font-size: 2em;
     padding: 20px;
     border: 3px solid #ff9800;
     border-radius: 10px;
-    background-color: #333;
     display: inline-block;
+    background-color: #333;
+    width: fit-content;
 }
 
+/* Bouton "Commencer" */
+.btn-commencer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-commencer:hover {
+    background-color: #e68900;
+}
+
+/* Icônes décoratives */
 .icons {
     display: flex;
     justify-content: center;
@@ -52,23 +73,71 @@ body {
     cursor: pointer;
 }
 
-/* ==== Bouton Commencer / Menu ==== */
-.btn-commencer {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #ff9800;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5em;
-    border-radius: 5px;
-    z-index: 100;
+/* === PAGE DE CONTRÔLE === */
+.controle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
 }
 
-.btn-commencer:hover {
-    background-color: #e68900;
+.volet {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #444;
+    border-radius: 10px;
+}
+
+.led {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+.led .icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+.led span {
+    flex: 1;
+    text-align: left;
+}
+
+/* Boutons */
+.btn {
+    padding: 8px 15px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+}
+
+.btn-on {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-off {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-on:hover {
+    background-color: #45a049;
+}
+
+.btn-off:hover {
+    background-color: #d32f2f;
 }
 
 /* ==== Menu déroulant ==== */
@@ -135,104 +204,6 @@ body {
     background-color: #e68900;
 }
 
-/****** mode utilisation (automatique ou manuel ********/
-.volet{
-    background-color: #222;
-
-}
-.recepteur {
-    background-color: #000;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 20px;
-    width: 600px;
-}
-
-
-.recepteur .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.recepteur select, .recepteur input {
-    margin: 5px 0;
-    padding: 5px;
-    border-radius: 5px;
-    border: none;
-    width: 100%;
-}
-
-
-/* Réduire la largeur des divs automatique et manuel */
-.recepteur .manuel, .recepteur .automatique {
-    width: 250px; /* Largeur fixe égale à celle du titre */
-    margin: 0 auto;
-}
-
-/* Centrer l'icône du soleil */
-.led-soleil {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    width: 100px; /* Taille de l'icône */
-    height: 100px;
-    background-color: #444;
-    border-radius: 50%;
-}
-
-.led-soleil .icon {
-    font-size: 3em; /* Taille de l'icône du soleil */
-    color: yellow;
-}
-
-/**** alignement sur une seule ligne ****/
-.LedPhoto{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 20%;
-}
-
-
-/* Améliorer la présentation des boutons */
-.btn {
-    padding: 8px 20px;
-    margin: 10px;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    border-radius: 5px;
-    width: 100%; /* S'assurer que les boutons prennent toute la largeur de la div */
-}
-
-.btn-on {
-    background-color: #4CAF50;
-    color: white;
-    width: 40%;
-    padding: 5px 15px;
-}
-
-.btn-off {
-    background-color: #f44336;
-    color: white;
-    width: 40%;
-    padding: 5px 15px;
-}
-
-.btn-on:hover {
-    background-color: #45a049;
-}
-
-.btn-off:hover {
-    background-color: #d32f2f;
-}
-
-
-
 /* Affichage de l'état de l'enregistrement */
 #recordingStatus {
     position: fixed;
@@ -247,20 +218,15 @@ body {
     z-index: 100;
 }
 
-/* Responsive */
+/* RESPONSIVE DESIGN */
 @media screen and (max-width: 768px) {
-    .btn-commencer {
-        font-size: 1.2em;
-        padding: 8px 15px;
+    .led {
+        flex-direction: row; /* Maintient l'alignement horizontal */
+        flex-wrap: wrap;
     }
 
-    .record-button {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5em;
-    }
-
-    #recordingStatus {
-        font-size: 0.8em;
+    .btn {
+        flex: 1;
+        margin: 5px;
     }
 }
