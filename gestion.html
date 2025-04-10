@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Gestion Récepteurs</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Heno DOMOTIQUE</title>
 </head>
 <body>
     <button class="btn-commencer" id="menuToggle" onclick="toggleMenu()">☰</button>
@@ -16,220 +17,201 @@
             <li onclick="changerPage('index.html')">Se déconnecter</li>
         </ul>
     </div>
+    <!-- Page d'accueil -->
 
-    <h1 class="titre">Gestion des Récepteurs</h1>
+    <!-- Page de contrôle -->
+    <div class="controle" id="controle">
+        <h1 class="titre">Heno DOMOTIQUE</h1>
+        <div class="volet">
+            <h2>Contrôle des LEDs</h2>
 
-    <div class="volet">
-	<br>
-	<center>
-	<div class="LedPhoto">
-           <h3>💡💡💡💡Lampes extérieures</h3>
-	   <span>Etat.......</span>
-	</div>
-	</center>
-        <!-- Icône de soleil centrée -->
-        <div class="led-soleil">
-            <div class="icon">🌞</div>
+            <!--------------- Bloc led 1------------------------->>
+            <div class="led">
+                <div class="icon">💡</div>
+                <span>LED Extérieure 1</span>
+                <span id="etat1">  Éteinte</span>
+
+                <div class="volets">
+                    <select classe="mode" onchange="changerMode(this, 'r1')">
+                        <option value="manuel">Manuel</option>
+                        <option value="automatique">Automatique</option>
+                    </select>
+                </div>
+
+                <div class="manuel" id="manuel-r1">
+                    <button class="btn btn-on" onclick="demarrerRecepteur('r5')">Allumer</button>
+                    <button class="btn btn-off" onclick="arreterRecepteur('r5')">Eteindre</button>
+                </div>
+    
+                <!-- Contrôle Automatique -->
+                <div class="automatique" id="automatique-r1" style="display:none;">
+                    <label>Durée (minutes) :</label>
+                    <input type="number" id="duree-r1" placeholder="Ex: 30"><br>
+                    <label>Ou bien :</label><br>
+                    <label>Nombre de jours :</label><br>
+                    <input type="number" id="jours-r1" placeholder="Ex: 2"><br>
+                    <label>Date début:</label><br>
+                    <input type="datetime-local" id="debut-r1"><br>
+                    <label>Date fin:</label><br>
+                    <input type="datetime-local" id="fin-r1"><br>
+                    <button class="btn btn-on" onclick="programmerRecepteur('r1')">Lancer Programme</button>
+                </div>
+            </div>
+
+            <!--------------- Bloc led 2------------------------->>
+            <div class="led">
+                <div class="icon">💡</div>
+                <span>LED Extérieure 2</span>
+                <span id="etat1">  Éteinte</span>
+
+                <div class="volets">
+                    <select classe="mode" onchange="changerMode(this, 'r1')">
+                        <option value="manuel">Manuel</option>
+                        <option value="automatique">Automatique</option>
+                    </select>
+                </div>
+
+                <div class="manuel" id="manuel-r1">
+                    <button class="btn btn-on" onclick="demarrerRecepteur('r5')">Allumer</button>
+                    <button class="btn btn-off" onclick="arreterRecepteur('r5')">Eteindre</button>
+                </div>
+    
+                <!-- Contrôle Automatique -->
+                <div class="automatique" id="automatique-r1" style="display:none;">
+                    <label>Durée (minutes) :</label>
+                    <input type="number" id="duree-r1" placeholder="Ex: 30"><br>
+                    <label>Ou bien :</label><br>
+                    <label>Nombre de jours :</label><br>
+                    <input type="number" id="jours-r1" placeholder="Ex: 2"><br>
+                    <label>Date début:</label><br>
+                    <input type="datetime-local" id="debut-r1"><br>
+                    <label>Date fin:</label><br>
+                    <input type="datetime-local" id="fin-r1"><br>
+                    <button class="btn btn-on" onclick="programmerRecepteur('r1')">Lancer Programme</button>
+                </div>
+            </div>
+
+            <!--------------- Bloc led 3------------------------->>
+            <div class="led">
+                <div class="icon">💡</div>
+                <span>LED Salon</span>
+                <span id="etat1">Éteinte</span>
+
+                <div class="volets">
+                    <select classe="mode" onchange="changerMode(this, 'r1')">
+                        <option value="manuel">Manuel</option>
+                        <option value="automatique">Automatique</option>
+                    </select>
+                </div>
+
+                <div class="manuel" id="manuel-r1">
+                    <button class="btn btn-on" onclick="demarrerRecepteur('r5')">Allumer</button>
+                    <button class="btn btn-off" onclick="arreterRecepteur('r5')">Eteindre</button>
+                </div>
+    
+                <!-- Contrôle Automatique -->
+                <div class="automatique" id="automatique-r1" style="display:none;">
+                    <label>Durée (minutes) :</label>
+                    <input type="number" id="duree-r1" placeholder="Ex: 30"><br>
+                    <label>Ou bien :</label><br>
+                    <label>Nombre de jours :</label><br>
+                    <input type="number" id="jours-r1" placeholder="Ex: 2"><br>
+                    <label>Date début:</label><br>
+                    <input type="datetime-local" id="debut-r1"><br>
+                    <label>Date fin:</label><br>
+                    <input type="datetime-local" id="fin-r1"><br>
+                    <button class="btn btn-on" onclick="programmerRecepteur('r1')">Lancer Programme</button>
+                </div>
+            </div>
+            <!--------------- Bloc led 4------------------------->>
+            <div class="led">
+                <div class="icon">💡</div>
+                <span>LED chambre</span>
+                <span id="etat1">  Éteinte</span>
+
+                <div class="volets">
+                    <select classe="mode" onchange="changerMode(this, 'r1')">
+                        <option value="manuel">Manuel</option>
+                        <option value="automatique">Automatique</option>
+                    </select>
+                </div>
+
+                <div class="manuel" id="manuel-r1">
+                    <button class="btn btn-on" onclick="demarrerRecepteur('r5')">Allumer</button>
+                    <button class="btn btn-off" onclick="arreterRecepteur('r5')">Eteindre</button>
+                </div>
+    
+                <!-- Contrôle Automatique -->
+                <div class="automatique" id="automatique-r1" style="display:none;">
+                    <label>Durée (minutes) :</label>
+                    <input type="number" id="duree-r1" placeholder="Ex: 30"><br>
+                    <label>Ou bien :</label><br>
+                    <label>Nombre de jours :</label><br>
+                    <input type="number" id="jours-r1" placeholder="Ex: 2"><br>
+                    <label>Date début:</label><br>
+                    <input type="datetime-local" id="debut-r1"><br>
+                    <label>Date fin:</label><br>
+                    <input type="datetime-local" id="fin-r1"><br>
+                    <button class="btn btn-on" onclick="programmerRecepteur('r1')">Lancer Programme</button>
+                </div>
+            </div>
+
+            <!--------------- Bloc led 5------------------------->>
+            <div class="led">
+                <div class="icon">💡</div>
+                <span>LED chambre filles</span>
+                <span id="etat1">Éteinte</span>
+
+                <div class="volets">
+                    <select classe="mode" onchange="changerMode(this, 'r1')">
+                        <option value="manuel">Manuel</option>
+                        <option value="automatique">Automatique</option>
+                    </select>
+                </div>
+
+                <div class="manuel" id="manuel-r1">
+                    <button class="btn btn-on" onclick="demarrerRecepteur('r5')">Allumer</button>
+                    <button class="btn btn-off" onclick="arreterRecepteur('r5')">Eteindre</button>
+                </div>
+    
+                <!-- Contrôle Automatique -->
+                <div class="automatique" id="automatique-r1" style="display:none;">
+                    <label>Durée (minutes) :</label>
+                    <input type="number" id="duree-r1" placeholder="Ex: 30"><br>
+                    <label>Ou bien :</label><br>
+                    <label>Nombre de jours :</label><br>
+                    <input type="number" id="jours-r1" placeholder="Ex: 2"><br>
+                    <label>Date début:</label><br>
+                    <input type="datetime-local" id="debut-r1"><br>
+                    <label>Date fin:</label><br>
+                    <input type="datetime-local" id="fin-r1"><br>
+                    <button class="btn btn-on" onclick="programmerRecepteur('r1')">Lancer Programme</button>
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="volet">
-        <h2>Autres Récepteurs</h2>
-	
-	<center>
-        <!-- Récepteur 1 -->
-        <div class="recepteur" id="recepteur1">
-            <div class="volets">
-                <span>💡Lampe salon</span>
-                <select classe="mode" onchange="changerMode(this, 'r1')">
-                    <option value="manuel">Manuel</option>
-                    <option value="automatique">Automatique</option>
-                </select>
-            </div>
-
-            <!-- Contrôle Manuel -->
-	    <span id="r1">Etat </span>
-            <div class="manuel" id="manuel-r1">
-                <button class="btn btn-on" onclick="demarrerRecepteur('r1')">Allumer</button>
-                <button class="btn btn-off" onclick="arreterRecepteur('r1')">Eteindre</button>
-            </div>
-
-            <!-- Contrôle Automatique -->
-            <div class="automatique" id="automatique-r1" style="display:none;">
-                <label>Durée (minutes) :</label>
-                <input type="number" id="duree-r1" placeholder="Ex: 30"><br>
-                <label>Ou bien :</label><br>
-                <label>Nombre de jours :</label>
-                <input type="number" id="jours-r1" placeholder="Ex: 2"><br>
-                <label>Date début:</label>
-                <input type="datetime-local" id="debut-r1"><br>
-                <label>Date fin:</label>
-                <input type="datetime-local" id="fin-r1"><br>
-                <button class="btn btn-on" onclick="programmerRecepteur('r1')">Lancer Programme</button>
-            </div>
-        </div>
-	
-
-
-	<!-- Récepteur 2 -->
-        <div class="recepteur" id="recepteur2">
-            <div class="volets">
-                <span>💡Lampe chambre parent</span>
-                <select classe="mode" onchange="changerMode(this, 'r2')">
-                    <option value="manuel">Manuel</option>
-                    <option value="automatique">Automatique</option>
-                </select>
-            </div>
-
-            <!-- Contrôle Manuel -->
-	    <span id="r2">Etat </span>
-            <div class="manuel" id="manuel-r2">
-                <button class="btn btn-on" onclick="demarrerRecepteur('r2')">Allumer</button>
-                <button class="btn btn-off" onclick="arreterRecepteur('r2')">Eteindre</button>
-            </div>
-
-            <!-- Contrôle Automatique -->
-            <div class="automatique" id="automatique-r2" style="display:none;">
-                <label>Durée (minutes) :</label>
-                <input type="number" id="duree-r2" placeholder="Ex: 30"><br>
-                <label>Ou bien :</label><br>
-                <label>Nombre de jours :</label>
-                <input type="number" id="jours-r2" placeholder="Ex: 2"><br>
-                <label>Date début:</label>
-                <input type="datetime-local" id="debut-r2"><br>
-                <label>Date fin:</label>
-                <input type="datetime-local" id="fin-r2"><br>
-                <button class="btn btn-on" onclick="programmerRecepteur('r2')">Lancer Programme</button>
-            </div>
-        </div>
-
-	<!-- Récepteur 3 -->
-        <div class="recepteur" id="recepteur3">
-            <div class="volets">
-                <span>💡Lampe chambre garçons</span>
-                <select classe="mode" onchange="changerMode(this, 'r3')">
-                    <option value="manuel">Manuel</option>
-                    <option value="automatique">Automatique</option>
-                </select>
-            </div>
-
-            <!-- Contrôle Manuel -->
-	    <span id="r3">Etat </span>
-            <div class="manuel" id="manuel-r3">
-                <button class="btn btn-on" onclick="demarrerRecepteur('r3')">Allumer</button>
-                <button class="btn btn-off" onclick="arreterRecepteur('r3')">Eteindre</button>
-            </div>
-
-            <!-- Contrôle Automatique -->
-            <div class="automatique" id="automatique-r3" style="display:none;">
-                <label>Durée (minutes) :</label>
-                <input type="number" id="duree-r3" placeholder="Ex: 30"><br>
-                <label>Ou bien :</label><br>
-                <label>Nombre de jours :</label>
-                <input type="number" id="jours-r3" placeholder="Ex: 2"><br>
-                <label>Date début:</label>
-                <input type="datetime-local" id="debut-r3"><br>
-                <label>Date fin:</label>
-                <input type="datetime-local" id="fin-r3"><br>
-                <button class="btn btn-on" onclick="programmerRecepteur('r3')">Lancer Programme</button>
-            </div>
-        </div>
-
-	<!-- Récepteur 4 -->
-        <div class="recepteur" id="recepteur4">
-            <div class="volets">
-                <span>💡Lampe chambre filles</span>
-                <select classe="mode" onchange="changerMode(this, 'r4')">
-                    <option value="manuel">Manuel</option>
-                    <option value="automatique">Automatique</option>
-                </select>
-            </div>
-
-            <!-- Contrôle Manuel -->
-	    <span id="r4">Etat </span>
-            <div class="manuel" id="manuel-r4">
-                <button class="btn btn-on" onclick="demarrerRecepteur('r4')">Allumer</button>
-                <button class="btn btn-off" onclick="arreterRecepteur('r4')">Eteindre</button>
-            </div>
-
-            <!-- Contrôle Automatique -->
-            <div class="automatique" id="automatique-r4" style="display:none;">
-                <label>Durée (minutes) :</label>
-                <input type="number" id="duree-r4" placeholder="Ex: 30"><br>
-                <label>Ou bien :</label><br>
-                <label>Nombre de jours :</label>
-                <input type="number" id="jours-r4" placeholder="Ex: 2"><br>
-                <label>Date début:</label>
-                <input type="datetime-local" id="debut-r4"><br>
-                <label>Date fin:</label>
-                <input type="datetime-local" id="fin-r4"><br>
-                <button class="btn btn-on" onclick="programmerRecepteur('r4')">Lancer Programme</button>
-            </div>
-        </div>
-
-	<!-- Récepteur 5 -->
-        <div class="recepteur" id="recepteur5">
-            <div class="volets">
-                <span>📺 Télévision salon</span>
-                <select classe="mode" onchange="changerMode(this, 'r5')">
-                    <option value="manuel">Manuel</option>
-                    <option value="automatique">Automatique</option>
-                </select>
-            </div>
-
-            <!-- Contrôle Manuel -->
-	    <span id="r5">Etat </span>
-            <div class="manuel" id="manuel-r5">
-                <button class="btn btn-on" onclick="demarrerRecepteur('r5')">Allumer</button>
-                <button class="btn btn-off" onclick="arreterRecepteur('r5')">Eteindre</button>
-            </div>
-
-            <!-- Contrôle Automatique -->
-            <div class="automatique" id="automatique-r5" style="display:none;">
-                <label>Durée (minutes) :</label>
-                <input type="number" id="duree-r5" placeholder="Ex: 30"><br>
-                <label>Ou bien :</label><br>
-                <label>Nombre de jours :</label>
-                <input type="number" id="jours-r5" placeholder="Ex: 2"><br>
-                <label>Date début:</label>
-                <input type="datetime-local" id="debut-r5"><br>
-                <label>Date fin:</label>
-                <input type="datetime-local" id="fin-r5"><br>
-                <button class="btn btn-on" onclick="programmerRecepteur('r5')">Lancer Programme</button>
-            </div>
-        </div>
-
-	</center>
-        <!-- Tu peux copier-coller le bloc du recepteur1 ci-dessus pour les autres (récepteur2, 3, 4, 5) -->
-
-    </div>
-
     <script>
-	function changerPage(page) {
+        function changerPage(page) {
             window.location.href = page;
         }
 
-	function toggleMenu() {
+	    function toggleMenu() {
             const menu = document.getElementById("menu");
             const toggleBtn = document.getElementById("menuToggle");
             menu.classList.toggle("visible");
             toggleBtn.textContent = menu.classList.contains("visible") ? "✖" : "☰";
         }
 
+        function changerEtat(led, etat) {
+            console.log(`LED ${led} => ${etat}`);
+            document.getElementById(`etat${led}`).textContent = etat === 'on' ? 'Allumée' : 'Éteinte';
+        }
+
+        
         function changerMode(select, id) {
             const mode = select.value;
             document.getElementById(`manuel-${id}`).style.display = (mode === 'manuel') ? 'block' : 'none';
             document.getElementById(`automatique-${id}`).style.display = (mode === 'automatique') ? 'block' : 'none';
-        }
-
-        function demarrerRecepteur(id) {
-            alert(`Récepteur ${id} Allumer`);
-	        document.getElementById(`${id}`).textContent = 'Allumé';
-        }
-
-        function arreterRecepteur(id) {
-            alert(`Récepteur ${id} Éteinte`);
-	        document.getElementById(`${id}`).textContent = 'Éteinte';
         }
 
         function programmerRecepteur(id) {
