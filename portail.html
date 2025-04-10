@@ -16,17 +16,39 @@
             <li onclick="changerPage('index.html')">Se déconnecter</li>
         </ul>
     </div>
+    
+    <!-- Page de contrôle -->
+    <div class="controle" id="controle">
+        <h1 class="titre">Heno DOMOTIQUE</h1>
+        <div class="volet">
+            <h2>Contrôle Portail</h2>
 
-    <h1 class="titre">Gestion des Portails</h1><br><br>
+            <!--------------- Bloc Portail 1------------------------->
+            <div class="led">
+                <div class="icon">🚪</div>
+                <span>Portail Extérieure 1</span>
+                <span id="etat1">Fermer</span>
 
-    <div class="led">
-        <div class="icon">🚪</div>
-        <span>portail</span>
-        <span id="etat1">Ouvert</span>
 
-        <div class="manuel" id="manuel-r1">
-            <button class="btn btn-on" onclick="demarrerRecepteur('p1')">Ouvrir</button>
-            <button class="btn btn-off" onclick="arreterRecepteur('p1')">Fermer</button>
+                <div class="manuel" id="manuel-r1">
+                    <button class="btn btn-on" onclick="demarrerRecepteur('p1')">Ouvrir</button>
+                    <button class="btn btn-off" onclick="arreterRecepteur('p1')">Fermer</button>
+                </div>
+            </div>
+
+            <!--------------- Bloc Portail 2------------------------->
+            <div class="led">
+                <div class="icon">🚪</div>
+                <span>Portail Extérieure 2</span>
+                <span id="etat1">Fermer</span>
+
+
+                <div class="manuel" id="manuel-r1">
+                    <button class="btn btn-on" onclick="demarrerRecepteur('p1')">Ouvrir</button>
+                    <button class="btn btn-off" onclick="arreterRecepteur('p1')">Fermer</button>
+                </div>
+            </div>
+
         </div>
     </div>
     <script>
