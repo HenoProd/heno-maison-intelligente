@@ -17,35 +17,18 @@
         </ul>
     </div>
 
-    <h1 class="titre">Gestion des Portails</h1>
+    <h1 class="titre">Gestion des Portails</h1><br><br>
 
-    <div class="volet">
-	<br>
-        <!-- Icône de soleil centrée -->
-        <div class="led-soleil">
-            <div class="icon">🚪</div>
+    <div class="led">
+        <div class="icon">🚪</div>
+        <span>portail</span>
+        <span id="etat1">Ouvert</span>
+
+        <div class="manuel" id="manuel-r1">
+            <button class="btn btn-on" onclick="demarrerRecepteur('p1')">Ouvrir</button>
+            <button class="btn btn-off" onclick="arreterRecepteur('p1')">Fermer</button>
         </div>
     </div>
-
-    <div class="volet">
-        <h2>Portail</h2>
-	
-	<center>
-        <!-- Récepteur 1 -->
-        <div class="recepteur" id="portail">
- 
-
-            <!-- Contrôle Manuel -->
-	    <span id="p1">Etat </span>
-            <div class="manuel" id="manuel-r1">
-                <button class="btn btn-on" onclick="demarrerRecepteur('p1')">Ouvrir</button>
-                <button class="btn btn-off" onclick="arreterRecepteur('p1')">Fermer</button>
-            </div>
-	</center>
-        <!-- Tu peux copier-coller le bloc du recepteur1 ci-dessus pour les autres (récepteur2, 3, 4, 5) -->
-
-    </div>
-
     <script>
         var ip = "192.168.226.223"
 	    function changerPage(page) {
